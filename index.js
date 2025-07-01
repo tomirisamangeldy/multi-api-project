@@ -1,7 +1,9 @@
 import express from "express";
 import axios from "axios";
 import tt from "@tomtom-international/web-sdk-services/dist/services-node.min.js";
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
+
 const API_KEY_APOD = process.env.API_KEY_APOD;
 const API_KEY_TOMTOM = process.env.API_KEY_TOMTOM;
 
