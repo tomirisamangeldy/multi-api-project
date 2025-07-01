@@ -278,6 +278,9 @@ transition: background-color 0.3s ease, transform 0.2s ease;
 .output-data{
    flex: 1 1 60%; 
 }
+.output-data h3, .output-data p{
+   text-align: left;
+}
 
   /* ASTROFACTS.EJS  */
 .astroFacts-body p{
@@ -417,6 +420,7 @@ footer p {
 .apod-data {
   margin: 1rem 0;
   padding: 1rem;
+
 }
 .astroFacts-data{
   width: 90%;
@@ -485,9 +489,6 @@ footer p {
 }
 .output-data{
    flex: 1 1 100%; 
-}
-.output-data h3, .output-data p{
-   text-align: left;
 }
 .ppl-card{
   font-size: 0.9rem;
