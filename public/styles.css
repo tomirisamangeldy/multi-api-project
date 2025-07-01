@@ -1,0 +1,545 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: none;
+  font-family: "Nunito", sans-serif;
+  padding: none;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* HEADER  */
+.nav {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  transition: background-color 0.6s ease;
+  padding: 1rem 0;
+  backdrop-filter: blur(8px);
+}
+
+.nav:hover {
+  background-color: rgba(10, 7, 23, 0.2);
+}
+
+a.nav-link {
+  color: #ffffff;
+  transition: all 0.3s ease;
+  font-family: "Nunito", sans-serif;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+a.nav-link:hover {
+  color: rgb(109, 104, 251);
+  transform: scale(1.05);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+a.nav-link:active {
+  color: rgb(109, 104, 251);
+}
+/* BODY / MAIN.EJS  */
+.home-page {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  image-resolution: 300dpi;
+}
+
+.home-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.home-text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  max-width: fit-content;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
+  margin: 100px 0 0;
+}
+.home-page h1 {
+  font-family: "Audiowide", sans-serif;
+}
+
+.bounce-arrow {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: 2rem;
+  margin-top: 7rem;
+  text-decoration: none;
+  animation: bounce 2s infinite;
+}
+.bounce-arrow:hover {
+  color: #fff;
+  transform: translateY(-20px);
+}
+
+.activities-page {
+  background: rgb(32, 25, 66);
+  padding: 5rem 2rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding: 5rem 0;
+}
+
+.project-card {
+  background-color: rgb(48, 38, 98);
+  border: 1px solid #1f2833;
+  border-radius: 8px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  box-shadow: 0 0 10px rgb(32, 25, 65);
+}
+
+.project-card:hover {
+  background-color: #9d44c0;
+  transform: translateY(-6px);
+  box-shadow: 0 0 15px rgba(155, 0, 190, 0.9);
+  border: none;
+}
+.card-img {
+  overflow: hidden;
+}
+.card-img img {
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+.card-details{
+   width: 650px;
+}
+.project-card h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-family: "Audiowide", sans-serif;
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  color: #ffffff;
+  flex-grow: 1;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn-explore {
+  align-self: start;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s eafse;
+  background: rgba(48, 38, 98, 0.2);
+  border: 2px solid #ffffff;
+}
+
+.btn-explore:hover {
+  transform: scale(1.2);
+  background-color: #fff;
+  color: rgba(48, 38, 98);
+  border: 2px solid #fff;
+  background-color: 1s;
+}
+
+.bodies{
+  padding: 7rem 1rem 2rem;
+  background: linear-gradient(to bottom, #0b0c2a, #1b1c3a);
+  color: #fff;
+}
+/* APOD.EJS  */
+.title-card{
+  margin: 0 0 2rem;
+}
+.bodies h2{
+  text-align: center;
+  font-family: "Audiowide", sans-serif;
+  color: #a425ff;
+}
+.apod-body p{
+  text-align: center;
+  padding: 0 200px;
+}
+.apod-input{
+  margin: 0 auto;
+}
+.apod-input input[type="date"], .apod-input input[type="submit"] {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  
+}
+.apod-input input[type="submit"]{
+ align-self: start;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+    background-color: #fff;
+  color: rgba(48, 38, 98);
+  border: 2px solid #fff;
+}
+
+.apod-input input[type="submit"]:hover {
+   /* transform: scale(1.05); */
+color: #ffffff;
+transition: background-color 0.3s ease, transform 0.2s ease;
+  background: rgba(48, 38, 98, 0.2);
+  border: 2px solid #ffffff;
+  background-color: 1s;
+}
+.apod-data {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  padding: 1rem;
+}
+.apod-input{
+  margin: 0 0 5rem;
+  flex: 1 1 100%;
+}
+.apod-output {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 1rem;
+  flex: 1 1 100%; 
+}
+.apod-output h3{
+  text-align: center;
+}
+.apod-output p{
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+}
+.output-img img {
+  width: 300px;
+  box-shadow:0 0 15px rgb(0, 0, 0);
+  margin: 0 auto;
+}
+.output-img{
+ flex: 1 1 5%; 
+}
+.output-data{
+   flex: 1 1 60%; 
+}
+
+  /* ASTROFACTS.EJS  */
+.astroFacts-body p{
+  text-align: center;
+}
+.astroFacts-data{
+  width: 60%;
+  margin: 3rem auto;
+}
+.astroFacts-output{
+  text-align: left;
+  color: #0b0c2a;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 0 0 1rem;
+}
+.astroFacts-output p{
+  text-align: left;
+  padding: none;
+}
+.astroFacts-input input[type="submit"]{
+ align-self: start;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+color: #ffffff;
+transition: background-color 0.3s ease, transform 0.2s ease;
+  background: rgba(48, 38, 98, 0.2);
+  border: 2px solid #ffffff;
+}
+.astroFacts-input input[type="submit"]:hover{
+ background-color: #fff;
+  color: rgba(48, 38, 98);
+  border: 2px solid #fff;
+  background-color: 1s;
+}
+/* PPL.EJS  */
+.ppl-body{
+  height:700px;
+}
+.ppl-body .title-card p{
+  text-align: center;
+}
+.ppl-data p{
+  font-weight: bold;
+}
+.ppl-display{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.ppl-card{
+  padding: 1rem;
+  border:#a425ff;
+  background: #fff;
+  box-shadow: 0 0 15px #a425ff;
+  color: black;
+  border-radius: 8px;
+}
+/* ISS.EJS  */
+.iss-body .title-card p{
+  text-align: center;
+}
+.iss-data input{
+  align-self: start;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+    background-color: #fff;
+  color: rgba(48, 38, 98);
+  border: 2px solid #fff;
+  transition: 1s;
+}
+.iss-data input:hover{
+  color: #ffffff;
+transition: background-color 0.3s ease, transform 0.2s ease;
+  background: rgba(48, 38, 98, 0.2);
+  border: 2px solid #ffffff;
+  background-color: 1s;
+}
+/* DEVELOPER.EJS  */
+
+
+/* FOOTER  */
+
+footer {
+  color: #fff;
+  background-color: #120e28;
+  font-size: 0.8rem;
+  text-align: center;
+  box-shadow: inset 0 2px 5px rgba(0, 255, 136, 0.05);
+  padding: 2rem 0 1rem;
+}
+.socials a {
+  margin: auto;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  margin: 0 0.5rem;
+}
+.socials a:hover {
+  color: #9d44c0;
+  text-shadow: 0 0 5px #9d44c0;
+}
+.socials i {
+  font-size: 2rem;
+}
+footer p {
+  padding: 1rem 0 0;
+  font-weight: bold;
+}
+@media (max-width: 850px){
+  p,em {
+  font-size: 0.8rem;
+  }
+  .apod-body p{
+  text-align: center;
+  padding: 0 50px;
+}
+  .output-img img {
+  width: 200px;
+}
+.apod-input{
+  margin: 0 0 3rem;
+}
+  .apod-output h3{
+  font-size: 1.3rem;
+}
+.apod-output p{
+  padding: 0;
+  font-size: 0.8rem;
+}
+.apod-data {
+  margin: 1rem 0;
+  padding: 1rem;
+}
+.astroFacts-data{
+  width: 90%;
+  margin: 1rem auto;
+}
+.astroFacts-output h3{
+  font-size: 1rem;
+}
+.astroFacts-input input[type="submit"]{
+  font-size: 0.8rem;
+}
+.ppl-body{
+  height:fit-content;
+}
+}
+
+
+@media (max-width: 650px) {
+  h1{
+    font-size: 1.5rem;
+  }
+  h2{
+    font-size: 1.2rem;
+  }
+  h3{
+    font-size: 1rem;
+  }
+
+  p,em {
+  font-size: 0.8rem;
+  }  
+  .project-grid {
+  gap: 1rem;
+  padding: 2rem 0;
+}
+  .project-card{
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .card-img img {
+  border-radius: 8px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+.card-details{
+   width: 100%;
+}
+.card-details p{
+   font-size: 0.7rem;
+}
+.btn-explore {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+}
+.output-img img {
+  width: 200px;
+}
+.apod-data {
+  margin: 1rem 0;
+  padding: 1rem;
+}
+.output-img{
+ flex: 1 1 100%; 
+}
+.output-data{
+   flex: 1 1 100%; 
+}
+.output-data h3, .output-data p{
+   text-align: left;
+}
+.ppl-card{
+  font-size: 0.9rem;
+}
+}
+
+
+
+
+@media (max-width: 500px) {
+  a.nav-link {
+  font-size: 0.7rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+  p,em {
+  font-size: 0.7rem;
+  }
+  .project-grid {
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.project-card {
+  padding: 1rem;
+  width: 300px;
+  gap: 1rem;
+}
+  .card-img img {
+  width: 100%;
+  height: 120px;
+}
+.card-details{
+   width: 100%;
+}
+.card-details h3{
+   font-size: 1rem;
+}
+.card-details p{
+   font-size: 0.5rem;
+}
+.project-card p {
+  margin-bottom: 0.2rem;
+}
+.btn-explore {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.6rem;
+}
+.socials i {
+  font-size: 1.5rem;
+}
+.ppl-card{
+  padding: 0.8rem;
+}
+}

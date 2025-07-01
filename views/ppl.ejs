@@ -1,0 +1,19 @@
+    <%- include('partials/header.ejs') %>
+
+<div class="ppl-body bodies">
+       <div class="title-card">
+         <h2>Who's in Space?</h2>
+    <p>Data below displays the names and aircrafts of astronauts currently in space</p>
+       </div>
+    <hr>
+    <div class="ppl-data">
+           <p>As of <%= new Date().toLocaleDateString() %> there are <%= number %> astronauts in space:</p>
+            <div class = 'ppl-display'>
+                 <% people.forEach(person => { %>
+                <div class = 'ppl-card'><%= person.name %> on the <%= person.craft %></div>
+                <%}) %>
+                 </div>
+    </div>
+</div>
+    
+     <%- include('partials/footer.ejs') %>

@@ -1,0 +1,74 @@
+<%- include('partials/header.ejs') %>
+
+<div class="main-body">
+  <div class="home-page" style="background-image: url('<%= background %>')">
+    <div class="home-text">
+      <h1>Astral Daily</h1>
+      <p>
+        Isn’t space just beautiful? The image behind me is of space
+        <em>today</em> - I literally mean <em>today</em>.
+        Titled <%= title %>, this image was taken on <%= date %>. Want to see
+        more? Explore this website!
+      </p>
+    </div>
+    <a href="#activities" class="bounce-arrow"
+      ><i class="fa-solid fa-arrow-down"></i
+    ></a>
+  </div>
+
+  <div class="activities-page" id="activities">
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="card-img">
+          <img src="<%= background %>" />
+        </div>
+        <div class="card-details">
+          <h3>Space Image of the Day</h3>
+          <p>
+            Select a date and see the image and story from that day’s cosmic
+            event.
+          </p>
+          <a href="/apod" class="btn-explore">Visit</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="card-img">
+          <img src="images/astroFacts-banner.jpg" />
+        </div>
+        <div class="card-details">
+          <h3>Astronomy Facts</h3>
+          <p>
+            Generate fascinating facts about the vast cosmos, celestial bodies and their discoveries!
+          </p>
+          <a href="/astroFacts" class="btn-explore">Visit</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="card-img">
+          <img src="images/ppl-banner.jpg" />
+        </div>
+        <div class="card-details">
+          <h3>Who's is space?</h3>
+          <p>
+            Learn the number and the names of the astronauts that are currently in space!
+          </p>
+          <a href="/ppl" class="btn-explore">Visit</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="card-img">
+          <img src="images/issTracker-banner.jpg" />
+        </div>
+        <div class="card-details">
+          <h3>ISS Tracker</h3>
+          <p>
+            The International Space Station is moving at a speed of 28,000 km/h so its location changes really fast! Where is it right now?
+          </p>
+          <a href="/iss" class="btn-explore">Visit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

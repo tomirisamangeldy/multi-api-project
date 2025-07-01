@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERROR</title>
+    <style>
+      /* Body background similar to the site */
+.error-body {
+  margin: 0;
+  padding: 0;
+  background-color: #1c0f45; /* Deep space purple */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card styling */
+.error-card {
+  background-color: #321b6b; /* Card purple */
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  text-align: center;
+  color: #fff;
+  max-width: 400px;
+  width: 80%;
+}
+
+/* Heading */
+.error-card h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  line-height: 0;
+}
+
+/* Paragraph */
+.error-card p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+/* Button link */
+.error-card a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #321b6b;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 1rem 0 0;
+  border: #fff 1px solid;
+}
+
+.error-card a:hover {
+  background-color: transparent;
+  color: #fff;
+  border: #fff 1px solid;
+}
+
+    </style>
+  </head>
+  <body class="error-body">
+  <div class="error-card">
+    <h2>Error!</h2>
+    <p><%= error %></p>
+    <a href="/">Return Home</a>
+  </div>
+</body>
+</html>

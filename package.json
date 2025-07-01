@@ -1,0 +1,29 @@
+{
+  "name": "astronomy-api",
+  "version": "1.0.0",
+  "description": "Astronomy website that utilized different space related APIs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomirisamangeldy/Astral-Daily.git"
+  },
+  "author": "Tomiris Amangeldy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomirisamangeldy/Astral-Daily/issues"
+  },
+  "homepage": "https://github.com/tomirisamangeldy/Astral-Daily#readme",
+  "dependencies": {
+    "@tomtom-international/web-sdk-maps": "^6.25.0",
+    "@tomtom-international/web-sdk-services": "^6.25.0",
+    "axios": "^1.10.0",
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "node": "^20.19.3"
+  }
+}

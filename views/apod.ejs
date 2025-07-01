@@ -1,0 +1,30 @@
+    <%- include('partials/header.ejs') %>
+
+<div class="apod-body bodies">
+    <div class="title-card">
+        <h2>Space Image of the Day</h2>
+    <p>Hey! Space is a vast and magnificent place, NASA captures beautiful images of the cosmos and makes it availible for the public. Enter any date and find out about the happenings of the universe on that day</p>
+    
+    </div>    
+    <hr>
+    <div class="apod-data">
+        <div class="apod-input">
+            <form action="/get-date" method="POST">
+                <label for="bday">Enter a date:</label> <br>
+                <input type="date" value="<%=date%>" id="date" name="date" />
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+         <div class="apod-output">
+        <div class="output-img">
+            <img src="<%= image %>">
+        </div>
+        <div class="output-data">
+            <h3><%= title %></h3>
+            <p><%= description %></p>
+        </div>
+    </div>
+    </div>
+</div>
+    
+     <%- include('partials/footer.ejs') %>

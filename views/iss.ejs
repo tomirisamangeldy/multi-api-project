@@ -1,0 +1,31 @@
+    <%- include('partials/header.ejs') %>
+
+<div class="iss-body bodies">
+       <div class="title-card">
+         <h2>ISS Tracker</h2>
+    <p>Check out the location of the ISS right now on the map. Refresh the page to see updated coordinates.</p>
+       </div>
+    <hr>
+    <div class="iss-data">
+        <div class="iss-coords">
+            <p>Longitude: <%= lat %> | Latitude: <%= long %></p>
+        </div>
+        <div id="map"></div>
+    </div>
+</div>
+<script>
+  const map = tt.map({
+    key: "<%= key %>",
+    container: "map",
+    center: [<%= long %>, <%= lat %>],
+    zoom: 4
+  });
+
+  map.addControl(new tt.NavigationControl());
+
+  const marker = new tt.Marker()
+    .setLngLat([<%= long %>, <%= lat %>])
+    .addTo(map);
+</script>
+
+     <%- include('partials/footer.ejs') %>

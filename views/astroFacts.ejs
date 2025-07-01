@@ -1,0 +1,25 @@
+    <%- include('partials/header.ejs') %>
+
+<div class="astroFacts-body bodies">
+       <div class="title-card">
+         <h2>Astronomy Facts</h2>
+    <p>Uncover an interesting fact about space using the "Generate" button!</p>
+       </div>
+    <hr>
+    <div class="astroFacts-data">
+        <div class="astroFacts-output">
+            <h3><%= title %></h3>
+        <p><%= fact %></p>
+        <% if(isVerified){ %>
+        <em>Source: <%= source %></em>
+        <% }else{ %>
+            <em>Source not verified</em>
+            <% } %>
+        </div>
+        <div class="astroFacts-input">
+            <form action="/astroFacts" method="get"><input type="submit" value="Generate"></form>
+        </div>
+    </div>
+</div>
+    
+     <%- include('partials/footer.ejs') %>
