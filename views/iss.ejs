@@ -10,22 +10,22 @@
         <div class="iss-coords">
             <p>Longitude: <%= lat %> | Latitude: <%= long %></p>
         </div>
-        <div id="map"></div>
+        <div id="map" style="width: 100%; height: 500px;"></div>
     </div>
 </div>
 <script>
-  const map = tt.map({
-    key: "<%= key %>",
-    container: "map",
-    center: [<%= long %>, <%= lat %>],
-    zoom: 4
-  });
+ const map = new maplibregl.Map({
+  container: 'map',
+  style: 'https://api.maptiler.com/maps/streets/style.json?key=n5CZFC6Vd0b63TudNUtW', 
+    center: [<%=long%>, <%=lat%>],
+  zoom: 2
+});
 
-  map.addControl(new tt.NavigationControl());
+  map.addControl(new maplibregl.NavigationControl());
 
-  const marker = new tt.Marker()
-    .setLngLat([<%= long %>, <%= lat %>])
-    .addTo(map);
+  new maplibregl.Marker({ color: 'red' }) 
+  .setLngLat([<%=long%>, <%=lat%>]) 
+  .addTo(map);
 </script>
 
      <%- include('partials/footer.ejs') %>

@@ -1,10 +1,10 @@
 import express from "express";
 import axios from "axios";
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const API_KEY_APOD = process.env.API_KEY_APOD;
-const API_KEY_TOMTOM = process.env.API_KEY_TOMTOM;
 
 const app = express();
 const port = 3000;
@@ -130,7 +130,7 @@ app.get('/iss',async(req,res)=>{
     const response = await axios.get(issPath);
   const lat = response.data.iss_position.latitude;
   const long = response.data.iss_position.longitude;
-  res.render('iss.ejs',{key: API_KEY_TOMTOM ,lat:lat, long:long});
+  res.render('iss.ejs',{lat:lat, long:long});
   }catch(error){
  const message = "Fetch error, try again";
     res.render("error.ejs", { error: message });
