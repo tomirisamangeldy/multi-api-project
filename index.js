@@ -1,6 +1,5 @@
 import express from "express";
 import axios from "axios";
-import tt from "@tomtom-international/web-sdk-services/dist/services-node.min.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -35,7 +34,7 @@ app.get("/", async (req, res) => {
       date: date,
     });
   } catch (error) {
-    const message = "Oops, some thing when wrong!";
+    const message = "Oops, something went wrong!";
     res.render("error.ejs", { error: message });
   }
 });
