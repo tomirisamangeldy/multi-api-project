@@ -18,11 +18,12 @@ app.set("view engine", "ejs");
 
 app.get("/", async (req, res) => {
   try {
-    const today = new Date().toISOString().split("T")[0];
+    // const today = new Date().toISOString().split("T")[0];
+    const lastDate = "2025-09-30";
     const response = await axios.get(apodPath, {
       params: {
         api_key: API_KEY_APOD,
-        date: today,
+        date: lastDate,
       },
     });
     const imageOfTheDay = response.data.hdurl || response.data.url;
@@ -40,19 +41,22 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/apod", async (req, res) => {
-  const today = new Date().toISOString().split("T")[0];
+  // const today = new Date().toISOString().split("T")[0];
+  const now = new Date();
+  const rollBackDate = new Date(2024, now.getMonth(), now.getDate());
+  const rolledDateString = rollBackDate.toISOString().split("T")[0];
   try {
     const response = await axios.get(apodPath, {
       params: {
         api_key: API_KEY_APOD,
-        date: today,
+        date: rolledDateString,
       },
     });
     const image = response.data.hdurl || response.data.url;
     const title = response.data.title;
     const description = response.data.explanation;
     res.render("apod.ejs", {
-      date: today,
+      date: rolledDateString,
       image: image,
       title: title,
       description: description,
