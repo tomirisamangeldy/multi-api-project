@@ -290,6 +290,10 @@ transition: background-color 0.3s ease, transform 0.2s ease;
   width: 60%;
   margin: 3rem auto;
 }
+.title-line{
+  display:flex;
+  justify-content:space-between;
+}
 .astroFacts-output{
   text-align: left;
   color: #0b0c2a;
@@ -298,6 +302,7 @@ transition: background-color 0.3s ease, transform 0.2s ease;
   border-radius: 8px;
   margin: 0 0 1rem;
 }
+
 .astroFacts-output p{
   text-align: left;
   padding: none;
@@ -305,6 +310,7 @@ transition: background-color 0.3s ease, transform 0.2s ease;
 .astroFacts-input input[type="submit"]{
  align-self: start;
   padding: 0.5rem 1rem;
+   margin-bottom: 1rem;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
@@ -312,6 +318,7 @@ color: #ffffff;
 transition: background-color 0.3s ease, transform 0.2s ease;
   background: rgba(48, 38, 98, 0.2);
   border: 2px solid #ffffff;
+  
 }
 .astroFacts-input input[type="submit"]:hover{
  background-color: #fff;

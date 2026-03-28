@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const API_KEY_APOD = process.env.API_KEY_APOD;
+const API_TOKEN_SOLAR = process.env.API_TOKEN_SOLAR;
 
 const app = express();
 const port = 3000;
@@ -18,12 +19,11 @@ app.set("view engine", "ejs");
 
 app.get("/", async (req, res) => {
   try {
-    // const today = new Date().toISOString().split("T")[0];
-    const lastDate = "2025-09-30";
+    const today = new Date().toISOString().split("T")[0];
     const response = await axios.get(apodPath, {
       params: {
         api_key: API_KEY_APOD,
-        date: lastDate,
+        date: today,
       },
     });
     const imageOfTheDay = response.data.hdurl || response.data.url;
@@ -41,22 +41,19 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/apod", async (req, res) => {
-  // const today = new Date().toISOString().split("T")[0];
-  const now = new Date();
-  const rollBackDate = new Date(2024, now.getMonth(), now.getDate());
-  const rolledDateString = rollBackDate.toISOString().split("T")[0];
+  const today = new Date().toISOString().split("T")[0];
   try {
     const response = await axios.get(apodPath, {
       params: {
         api_key: API_KEY_APOD,
-        date: rolledDateString,
+        date: today,
       },
     });
     const image = response.data.hdurl || response.data.url;
     const title = response.data.title;
     const description = response.data.explanation;
     res.render("apod.ejs", {
-      date: rolledDateString,
+      date: today,
       image: image,
       title: title,
       description: description,
@@ -91,20 +88,22 @@ app.post("/get-date", async (req, res) => {
   }
 });
 
-const astroPath = 'https://f-api.ir/api/facts/category/astronomy';
-const tempoPath = 'https://f-api.ir/api/facts/random'
 
-app.get('/astroFacts', async (req, res)=>{
-  try{
-    const response = await axios.get(tempoPath);
-    // const limit = response.data.length;
-    // const selected = response.data[Math.floor(Math.random() * limit)];
-    const selected = response.data;
-    const title = selected.title;
-    const fact = selected.fact;
-    const isVerified = selected.verified;
-    const source = selected.source;
-    res.render('astroFacts.ejs',{title:title,fact:fact,isVerified: isVerified,source:source});
+const solarPath = "https://api.le-systeme-solaire.net/rest/bodies/";
+app.get("/astroFacts", async (req, res) => {
+  try {
+    const response = await axios.get(solarPath, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN_SOLAR}`,
+      },
+    });
+  const numOfBodiesInDatabase = response.data.bodies.length;
+  let randomBodyNum = Math.floor(Math.random()*numOfBodiesInDatabase);
+  let randomBody =  response.data.bodies[randomBodyNum];
+
+    res.render("astroFacts.ejs", {
+      details: randomBody,
+    });
   }catch(error){
     const message = "Fetch error, try again";
     res.render("error.ejs", { error: message });
