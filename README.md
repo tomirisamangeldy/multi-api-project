@@ -4,7 +4,7 @@ Visit the application [here](https://multi-api-project.onrender.com)
 ## Description
 A blog web application focused on API usage. Built using Node, Express and EJS. Five Rest APIs were used: 
 1) NASA's APOD API to give functionality to the "Space Image by Date" page,
-2) Facts API to generate random astronomy facts [Currently the API is having issues so facts from all branches of science may show up],
+2) The Solar System OpenData API to generate technical facts about celestial bodies in our Solar System,
 3) People in Space API to retreive the number, names and aircrafts of astronauts currently in space,
 4) ISS Location API to track the ISS's longitude and latitude coordinates,
 5) MapLibre API to mark the current location of the ISS on the map.
